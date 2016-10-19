@@ -3,15 +3,32 @@ body{
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 .test-webkit-sassui-money{
-  @include webkit-sassui-money();
+  @include webkit-sassui-money(#f00,5px,middle);
   >.yen{
     font-size: 1.4em;
   }
   >.num{
-    font-size: 2em;
+    font-size: 3em;
   }
 }
 
 .test-webkit-sassui-money-bt{
   @include webkit-sassui-money(#f00,5px,bottom);
+  >.yen{
+    font-size: 1.4em;
+  }
+  >.num{
+    font-size: 3em;
+  }
+}
+
+
+.test-webkit-sassui-money-bst{
+  @include webkit-sassui-money(#f00,5px);
+  >.yen{
+    font-size: 1.4em;
+  }
+  >.num{
+    font-size: 3em;
+  }
 }

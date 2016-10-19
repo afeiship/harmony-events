@@ -6,13 +6,17 @@ body {
 
 .test-webkit-sassui-money {
   font-size: 10px;
-  color: #FF5000;
+  color: #f00;
+}
+
+.test-webkit-sassui-money > * {
   vertical-align: middle;
+  display: inline-block;
 }
 
 .test-webkit-sassui-money > .yen {
   font-size: 1.2em;
-  margin-right: 2px;
+  margin-right: 5px;
 }
 
 .test-webkit-sassui-money > .num {
@@ -24,13 +28,17 @@ body {
 }
 
 .test-webkit-sassui-money > .num {
-  font-size: 2em;
+  font-size: 3em;
 }
 
 .test-webkit-sassui-money-bt {
   font-size: 10px;
   color: #f00;
+}
+
+.test-webkit-sassui-money-bt > * {
   vertical-align: bottom;
+  display: inline-block;
 }
 
 .test-webkit-sassui-money-bt > .yen {
@@ -40,4 +48,39 @@ body {
 
 .test-webkit-sassui-money-bt > .num {
   font-size: 1.5em;
+}
+
+.test-webkit-sassui-money-bt > .yen {
+  font-size: 1.4em;
+}
+
+.test-webkit-sassui-money-bt > .num {
+  font-size: 3em;
+}
+
+.test-webkit-sassui-money-bst {
+  font-size: 10px;
+  color: #f00;
+}
+
+.test-webkit-sassui-money-bst > * {
+  vertical-align: baseline;
+  display: inline-block;
+}
+
+.test-webkit-sassui-money-bst > .yen {
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+.test-webkit-sassui-money-bst > .num {
+  font-size: 1.5em;
+}
+
+.test-webkit-sassui-money-bst > .yen {
+  font-size: 1.4em;
+}
+
+.test-webkit-sassui-money-bst > .num {
+  font-size: 3em;
 }

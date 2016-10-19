@@ -1,9 +1,13 @@
 /*webkit-sassui-money Start*/
-@mixin webkit-sassui-money($inColor:#FF5000,$inGap:2px,$inAlign:middle){
+@mixin webkit-sassui-money($inColor:#FF5000,$inGap:2px,$inAlign:baseline){
   //Your mixin code goes here.
   font-size: 10px;
   color:$inColor;
-  vertical-align: $inAlign;
+  &>*{
+    vertical-align: $inAlign;
+    display: inline-block;
+  }
+
   >.yen{
     font-size: 1.2em;
     margin-right: $inGap;
