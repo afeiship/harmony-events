@@ -4,6 +4,9 @@
   font-size: 10px;
   color:$inColor;
   vertical-align: $inAlign;
+  >*{
+    display: inline-block;
+  }
   >.yen{
     font-size: 1.2em;
     margin-right: $inGap;
