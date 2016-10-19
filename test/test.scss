@@ -3,7 +3,8 @@ body{
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 h2{
-  border-bottom: 1px solid #eee;
+  border-bottom: 2px solid #eee;
+  padding:0 0 5px 5px;
 }
 .test-webkit-sassui-money{
   @include webkit-sassui-money(#f00,5px,middle);
