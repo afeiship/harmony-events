@@ -2,6 +2,9 @@
 body{
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+h2{
+  border-bottom: 1px solid #eee;
+}
 .test-webkit-sassui-money{
   @include webkit-sassui-money(#f00,5px,middle);
   >.yen{
