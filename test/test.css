@@ -1,0 +1,43 @@
+/*webkit-sassui-money Start*/
+/*webkit-sassui-money End*/
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.test-webkit-sassui-money {
+  font-size: 10px;
+  color: #FF5000;
+  vertical-align: middle;
+}
+
+.test-webkit-sassui-money > .yen {
+  font-size: 1.2em;
+  margin-right: 2px;
+}
+
+.test-webkit-sassui-money > .num {
+  font-size: 1.5em;
+}
+
+.test-webkit-sassui-money > .yen {
+  font-size: 1.4em;
+}
+
+.test-webkit-sassui-money > .num {
+  font-size: 2em;
+}
+
+.test-webkit-sassui-money-bt {
+  font-size: 10px;
+  color: #f00;
+  vertical-align: bottom;
+}
+
+.test-webkit-sassui-money-bt > .yen {
+  font-size: 1.2em;
+  margin-right: 5px;
+}
+
+.test-webkit-sassui-money-bt > .num {
+  font-size: 1.5em;
+}

@@ -1,0 +1,17 @@
+@import "../dist/webkit-sassui-money.scss";
+body{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.test-webkit-sassui-money{
+  @include webkit-sassui-money();
+  >.yen{
+    font-size: 1.4em;
+  }
+  >.num{
+    font-size: 2em;
+  }
+}
+
+.test-webkit-sassui-money-bt{
+  @include webkit-sassui-money(#f00,5px,bottom);
+}
