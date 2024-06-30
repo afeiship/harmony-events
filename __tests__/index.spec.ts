@@ -7,13 +7,11 @@ class MyComponent {
     public data,
     public name
   ) {
-    // console.log('data: ', data, name);
     this.data = data;
     this.he = HarmonyEvents.create({ ns: '$my', events: ['add', 'del'], name, context: this });
   }
 
   add(item) {
-    console.log('add: ', this.data, item);
     this.data.push(item);
   }
 
@@ -57,15 +55,11 @@ describe('api.basic', () => {
     expect(ins1.data).toEqual([1]);
     expect(ins2.data).toEqual([2]);
 
-    console.log(ins1,ins2);
-
 
     // events
-    // nx.$my.event.emit('t1:add', 3);
-    // console.log('ins1.data: ', ins1.data);
-
-    // expect(ins1.data).toEqual([1, 3]);
-    // nx.$my.event.emit('t2:add', 4);
-    // expect(ins2.data).toEqual([2, 4]);
+    nx.$my.event.emit('t1:add', 3);
+    expect(ins1.data).toEqual([1, 3]);
+    nx.$my.event.emit('t2:add', 4);
+    expect(ins2.data).toEqual([2, 4]);
   });
 });

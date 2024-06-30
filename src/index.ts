@@ -12,8 +12,11 @@ class HarmonyEvents {
   private options: Options;
 
   constructor(inOptions: Options) {
+    const ctx = window['nx'];
     this.options = inOptions;
-    this.eventBus = Object.assign({}, EventMitt) as EventMittNamespace.EventMitt;
+    const { ns } = this.options;
+    const event = ctx.get(ctx, `${ns}.event`);
+    this.eventBus = event || (Object.assign({}, EventMitt) as EventMittNamespace.EventMitt);
     this.registerNx();
     this.on();
   }
@@ -33,7 +36,6 @@ class HarmonyEvents {
   on() {
     const { events, context, name } = this.options;
     events.forEach((eventName) => {
-      console.log('`${name}:${eventName}`: ', `${name}:${eventName}`);
       this.eventBus.on(`${name}:${eventName}`, context[eventName].bind(context));
     });
   }
