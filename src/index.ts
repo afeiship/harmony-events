@@ -8,16 +8,12 @@ interface Options {
 }
 
 class HarmonyEvents {
-  private eventBus: EventMittNamespace.EventMitt;
+  private eventBus: EventMittNamespace.EventMitt | null = null;
   private options: Options;
 
   constructor(inOptions: Options) {
-    const ctx = window['nx'];
     this.options = inOptions;
-    const { ns } = this.options;
-    const event = ctx.get(ctx, `${ns}.event`);
-    this.eventBus = event || (Object.assign({}, EventMitt) as EventMittNamespace.EventMitt);
-    this.registerNx();
+    this.init();
     this.on();
   }
 
@@ -25,25 +21,25 @@ class HarmonyEvents {
     return new HarmonyEvents(inOptions);
   }
 
-  registerNx() {
+  init() {
     const { ns } = this.options;
     const ctx = window['nx'];
-    if (ctx) {
-      ctx.set(ctx, `${ns}.event`, this.eventBus);
-    }
+    const event = ctx.get(ctx, `${ns}.event`);
+    this.eventBus = event || (Object.assign({}, EventMitt) as EventMittNamespace.EventMitt);
+    if (ctx) ctx.set(ctx, `${ns}.event`, this.eventBus);
   }
 
   on() {
     const { events, context, name } = this.options;
     events.forEach((eventName) => {
-      this.eventBus.on(`${name}:${eventName}`, context[eventName].bind(context));
+      this.eventBus?.on(`${name}:${eventName}`, context[eventName].bind(context));
     });
   }
 
-  destroy() {
+  off() {
     const { events, name } = this.options;
     events.forEach((eventName) => {
-      this.eventBus.off(`${name}:${eventName}`);
+      this.eventBus?.off(`${name}:${eventName}`);
     });
   }
 }

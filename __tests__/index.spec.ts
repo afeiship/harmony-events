@@ -21,7 +21,7 @@ class MyComponent {
   }
 
   unmount() {
-    this.he.destroy();
+    this.he.off();
   }
 }
 
@@ -30,7 +30,7 @@ describe('api.basic', () => {
   // @ts-ignore
   globalThis['window'] = globalThis;
 
-  test.skip('Register and emit event', () => {
+  test('Register and emit event', () => {
     const myComponent = new MyComponent([], 'test');
     myComponent.add(1);
     myComponent.add(2);
@@ -54,7 +54,6 @@ describe('api.basic', () => {
     ins2.add(2);
     expect(ins1.data).toEqual([1]);
     expect(ins2.data).toEqual([2]);
-
 
     // events
     nx.$my.event.emit('t1:add', 3);
