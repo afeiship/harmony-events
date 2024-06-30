@@ -1,3 +1,3 @@
 interface NxStatic {
-  $my: { event: any; };
+  $my: { event: import('@jswork/event-mitt').EventMittNamespace.EventMitt; };
 }

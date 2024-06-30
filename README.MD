@@ -15,7 +15,7 @@ npm install @jswork/harmony-events
 ```js
 import HarmonyEvents from '@jswork/harmony-events';
 
-class ReactComponent extends React.Component {
+class MyComponent extends React.Component {
   // 1. private harmonyEvents
   private harmonyEvents:HarmonyEvents | null = null;
   constructor(props) {
@@ -40,11 +40,27 @@ class ReactComponent extends React.Component {
   remove = (item) => {};
   clear = () => {};
 }
-```
 
-## types
-```ts
-/// <reference types="@jswork/harmony-events/global.d.ts" />
+// 4. add typings
+interface NxStatic {
+  $rc: {
+    event: import('@jswork/event-mitt').EventMittNamespace.EventMitt;
+  }
+}
+
+// 5.  when use in React component
+<MyComponent name="t1" />
+<MyComponent name="t2" />
+
+// 6. call methods
+nx.$rc.event.emit('t1:add', { name: 't1', item: 'hello' });
+nx.$rc.event.emit('t2:add', { name: 't2', item: 'world' });
+
+nx.$rc.event.emit('t1:remove', { name: 't1', item: 'hello' });
+nx.$rc.event.emit('t2:remove', { name: 't2', item: 'world' });
+
+nx.$rc.event.emit('t1:clear');
+nx.$rc.event.emit('t2:clear');
 ```
 
 ## license
