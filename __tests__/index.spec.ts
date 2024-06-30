@@ -8,7 +8,7 @@ class MyComponent {
     public name
   ) {
     this.data = data;
-    this.he = HarmonyEvents.create({ ns: '$my', events: ['add', 'del'], name, context: this });
+    this.he = HarmonyEvents.create({ harmony: true, ns: '$my', events: ['add', 'del'], name, context: this });
   }
 
   add(item) {
@@ -62,7 +62,7 @@ describe('api.basic', () => {
     expect(ins2.data).toEqual([2, 4]);
   });
 
-  test('unmount events-add/del will not trigger', ()=>{
+  test('unmount events-add/del will not trigger', () => {
     const ins1 = new MyComponent([], 't1');
     ins1.add(1);
 
@@ -84,5 +84,5 @@ describe('api.basic', () => {
 
     nx.$my.event.emit('t1:del', 1);
     expect(ins1.data).toEqual([1, 3]);
-  })
+  });
 });

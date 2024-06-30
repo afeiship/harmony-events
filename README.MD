@@ -13,9 +13,33 @@ npm install @jswork/harmony-events
 
 ## usage
 ```js
-import harmonyEvents from '@jswork/harmony-events';
+import HarmonyEvents from '@jswork/harmony-events';
 
-// usage goes here.
+class ReactComponent extends React.Component {
+  // 1. private harmonyEvents
+  private harmonyEvents:HarmonyEvents | null = null;
+  constructor(props) {
+    super(props);
+    // 2. init harmonyEvents
+    this.harmonyEvents = new HarmonyEvents({
+      harmony: props.harmony,
+      name: props.name,
+      context: this,
+      ns: '$rc',
+      events: ['add', 'remove', 'clear']
+    });
+  }
+
+  componentWillUnmount() {
+    // 3. destroy harmonyEvents
+    this.harmonyEvents?.destroy();
+  }
+
+  // add/remove/clear methods
+  add = (item) => {};
+  remove = (item) => {};
+  clear = () => {};
+}
 ```
 
 ## types
