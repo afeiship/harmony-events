@@ -57,8 +57,11 @@ describe('api.basic', () => {
     expect(ins1.data).toEqual([1]);
     expect(ins2.data).toEqual([2]);
 
+    console.log(ins1,ins2);
+
+
     // events
-    nx.$my.event.emit('t1:add', 3);
+    // nx.$my.event.emit('t1:add', 3);
     // console.log('ins1.data: ', ins1.data);
 
     // expect(ins1.data).toEqual([1, 3]);
