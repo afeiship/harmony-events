@@ -61,4 +61,28 @@ describe('api.basic', () => {
     nx.$my.event.emit('t2:add', 4);
     expect(ins2.data).toEqual([2, 4]);
   });
+
+  test('unmount events-add/del will not trigger', ()=>{
+    const ins1 = new MyComponent([], 't1');
+    ins1.add(1);
+
+    expect(ins1.data).toEqual([1]);
+
+    // events
+    nx.$my.event.emit('t1:add', 2);
+    nx.$my.event.emit('t1:add', 3);
+    expect(ins1.data).toEqual([1, 2, 3]);
+
+    // del
+    nx.$my.event.emit('t1:del', 2);
+    expect(ins1.data).toEqual([1, 3]);
+
+    // unmount
+    ins1.unmount();
+    nx.$my.event.emit('t1:add', 'a');
+    expect(ins1.data).toEqual([1, 3]);
+
+    nx.$my.event.emit('t1:del', 1);
+    expect(ins1.data).toEqual([1, 3]);
+  })
 });
