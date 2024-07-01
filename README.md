@@ -56,8 +56,8 @@ interface NxStatic {
 nx.$rc.event.emit('t1:add', { name: 't1', item: 'hello' });
 nx.$rc.event.emit('t2:add', { name: 't2', item: 'world' });
 
-nx.$rc.event.emit('t1:remove', { name: 't1', item: 'hello' });
-nx.$rc.event.emit('t2:remove', { name: 't2', item: 'world' });
+nx.$rc.event.emit('t1:remove', 0);
+nx.$rc.event.emit('t2:remove', 1);
 
 nx.$rc.event.emit('t1:clear');
 nx.$rc.event.emit('t2:clear');
