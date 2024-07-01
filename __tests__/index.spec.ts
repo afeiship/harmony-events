@@ -5,7 +5,7 @@ class MyComponent {
   private he: HarmonyEvents;
   constructor(public data, public name) {
     this.data = data;
-    this.he = HarmonyEvents.create({
+    this.he = new HarmonyEvents({
       harmony: true,
       ns: '$my',
       items: ['add', 'del'],

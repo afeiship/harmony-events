@@ -20,10 +20,6 @@ class HarmonyEvents {
     }
   }
 
-  static create(inOptions: Options) {
-    return new HarmonyEvents(inOptions);
-  }
-
   init() {
     const { ns } = this.options;
     const ctx = window['nx'];
