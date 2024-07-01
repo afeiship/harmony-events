@@ -8,12 +8,20 @@ interface Options {
   context: any;
 }
 
+const defaults = {
+  name: '@',
+  harmony: false,
+  ns: 'hEvents',
+  items: [],
+  context: null,
+};
+
 class HarmonyEvents {
   private eventBus: EventMittNamespace.EventMitt | null = null;
   private options: Options;
 
   constructor(inOptions: Options) {
-    this.options = { harmony: false, ...inOptions };
+    this.options = { ...defaults, ...inOptions };
     if (this.options.harmony) {
       this.init();
       this.on();
