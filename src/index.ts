@@ -2,8 +2,8 @@ import EventMitt, { EventMittNamespace } from '@jswork/event-mitt';
 
 interface Options {
   harmony?: boolean;
+  name?: string;
   ns: string;
-  name: string;
   items: string[];
   context: any;
 }
