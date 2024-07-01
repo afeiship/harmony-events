@@ -26,7 +26,7 @@ class MyComponent extends React.Component {
       name: props.name,
       context: this,
       ns: '$rc',
-      events: ['add', 'remove', 'clear']
+      items: ['add', 'remove', 'clear']
     });
   }
 

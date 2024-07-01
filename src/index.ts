@@ -4,7 +4,7 @@ interface Options {
   harmony?: boolean;
   ns: string;
   name: string;
-  events: string[];
+  items: string[];
   context: any;
 }
 
@@ -33,8 +33,8 @@ class HarmonyEvents {
   }
 
   on() {
-    const { events, context, name } = this.options;
-    events.forEach((eventName) => {
+    const { items, context, name } = this.options;
+    items.forEach((eventName) => {
       this.eventBus?.on(`${name}:${eventName}`, context[eventName].bind(context));
     });
   }

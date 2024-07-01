@@ -8,7 +8,7 @@ class MyComponent {
     this.he = HarmonyEvents.create({
       harmony: true,
       ns: '$my',
-      events: ['add', 'del'],
+      items: ['add', 'del'],
       name,
       context: this,
     });
