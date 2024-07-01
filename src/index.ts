@@ -40,10 +40,8 @@ class HarmonyEvents {
   }
 
   off() {
-    const { events, name } = this.options;
-    events.forEach((eventName) => {
-      this.eventBus?.off(`${name}:${eventName}`);
-    });
+    const { name } = this.options;
+    this.eventBus?.off(`${name}:*`);
   }
 }
 
