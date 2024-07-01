@@ -3,12 +3,15 @@ import HarmonyEvents from '../src';
 
 class MyComponent {
   private he: HarmonyEvents;
-  constructor(
-    public data,
-    public name
-  ) {
+  constructor(public data, public name) {
     this.data = data;
-    this.he = HarmonyEvents.create({ harmony: true, ns: '$my', events: ['add', 'del'], name, context: this });
+    this.he = HarmonyEvents.create({
+      harmony: true,
+      ns: '$my',
+      events: ['add', 'del'],
+      name,
+      context: this,
+    });
   }
 
   add(item) {
