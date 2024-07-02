@@ -64,13 +64,15 @@ nx.$rc.event.emit('t2:clear');
 
 // ----- use ReactHarmonyEvents -----
 import { ReactHarmonyEvents } from '@jswork/harmony-events';
+import type { EventMittNamespace } from '@jswork/event-mitt';
 
 class MyComponent extends React.Component {
   // 1. public events
   static events = ['add', 'remove', 'clear'];
+  static event: EventMittNamespace.EventMitt;
   
   // 2. private harmonyEvents
-  private harmonyEvents:HarmonyEvents | null = null;
+  private harmonyEvents:ReactHarmonyEvents | null = null;
   
   constructor(props) {
     super(props);
