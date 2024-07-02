@@ -24,7 +24,7 @@ class MyComponent {
   }
 
   unmount() {
-    this.he.off();
+    this.he.destroy();
   }
 }
 

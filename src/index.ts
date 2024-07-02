@@ -43,7 +43,7 @@ class HarmonyEvents {
     });
   }
 
-  off() {
+  destroy() {
     const { name } = this.options;
     this.eventBus?.off(`${name}:*`);
   }
