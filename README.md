@@ -61,6 +61,50 @@ nx.$rc.event.emit('t2:remove', 1);
 
 nx.$rc.event.emit('t1:clear');
 nx.$rc.event.emit('t2:clear');
+
+// ----- use ReactHarmonyEvents -----
+import { ReactHarmonyEvents } from '@jswork/harmony-events';
+
+class MyComponent extends React.Component {
+  // 1. public events
+  static events = ['add', 'remove', 'clear'];
+  
+  // 2. private harmonyEvents
+  private harmonyEvents:HarmonyEvents | null = null;
+  
+  constructor(props) {
+    super(props);
+    // 2. init harmonyEvents
+    this.harmonyEvents = new ReactHarmonyEvents({
+      name: props.name,
+      context: this,
+    });
+  }
+
+  componentWillUnmount() {
+    // 3. destroy harmonyEvents
+    this.harmonyEvents?.destroy();
+  }
+
+  // add/remove/clear methods
+  add = (item) => {};
+  remove = (item) => {};
+  clear = () => {};
+}
+
+// 3.  when use in React component
+<MyComponent name="t1" />
+<MyComponent name="t2" />
+
+// 4. call methods
+MyComponent.event.emit('t1:add', { name: 't1', item: 'hello' });
+MyComponent.event.emit('t2:add', { name: 't2', item: 'world' });
+
+MyComponent.event.emit('t1:remove', 0);
+MyComponent.event.emit('t2:remove', 1);
+
+MyComponent.event.emit('t1:clear');
+MyComponent.event.emit('t2:clear');
 ```
 
 ## license

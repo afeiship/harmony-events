@@ -1,4 +1,5 @@
 import EventMitt, { EventMittNamespace } from '@jswork/event-mitt';
+import ReactHarmonyEvents from './react';
 
 interface Options {
   harmony?: boolean;
@@ -50,3 +51,4 @@ class HarmonyEvents {
 }
 
 export default HarmonyEvents;
+export { ReactHarmonyEvents };
