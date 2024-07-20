@@ -27,7 +27,7 @@ const defaults = {
 };
 
 class ReactHarmonyEvents {
-  private options: Options;
+  private readonly options: Options;
 
   get componentClass() {
     const { context } = this.options;
