@@ -62,7 +62,7 @@ nx.$rc.event.emit('t2:remove', 1);
 nx.$rc.event.emit('t1:clear');
 nx.$rc.event.emit('t2:clear');
 
-// ----- use ReactHarmonyEvents -----
+// ------------ use ReactHarmonyEvents ------------
 import { ReactHarmonyEvents } from '@jswork/harmony-events';
 import type { EventMittNamespace } from '@jswork/event-mitt';
 
@@ -77,10 +77,7 @@ class MyComponent extends React.Component {
   constructor(props) {
     super(props);
     // 2. init harmonyEvents
-    this.harmonyEvents = new ReactHarmonyEvents({
-      name: props.name,
-      context: this,
-    });
+    this.harmonyEvents = ReactHarmonyEvents.create(this);
   }
 
   componentWillUnmount() {

@@ -1,4 +1,4 @@
-import { ComponentClass } from 'react';
+import { ComponentClass, Component } from 'react';
 import EventMitt, { EventMittNamespace } from '@jswork/event-mitt';
 
 /**
@@ -21,21 +21,21 @@ declare module 'react' {
   }
 }
 
-const defaults = {
-  name: '@',
-  context: null,
-};
-
 class ReactHarmonyEvents {
   private readonly options: Options;
+
+  static create(context: Component<any>) {
+    return new ReactHarmonyEvents(context);
+  }
 
   get componentClass() {
     const { context } = this.options;
     return context.constructor as ComponentClass;
   }
 
-  constructor(inOptions: Options) {
-    this.options = { ...defaults, ...inOptions };
+  constructor(context: Component<any>) {
+    const { name } = context.props;
+    this.options = { name, context };
     this.init();
     this.on();
   }
