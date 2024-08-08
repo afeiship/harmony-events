@@ -6,7 +6,7 @@ export default defineConfig({
   splitting: true,
   cjsInterop: true,
   // globalName: 'i18nHelper',
-  // external: ['react'],
+  external: ['react', '@jswork/event-mitt'],
   clean: true,
   dts: true,
   sourcemap: true,
