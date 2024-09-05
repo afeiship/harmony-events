@@ -13,13 +13,13 @@ interface Options {
   context: any;
 }
 
-// todo: add typings for react, but not sure how to do it.
-declare module 'react' {
-  interface ComponentClass {
-    event: EventMittNamespace.EventMitt;
-    events: string[];
-  }
-}
+// // todo: add typings for react, but not sure how to do it.
+// declare module 'react' {
+//   interface ComponentClass {
+//     event: EventMittNamespace.EventMitt;
+//     events: string[];
+//   }
+// }
 
 class ReactHarmonyEvents {
   private readonly options: Options;
