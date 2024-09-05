@@ -50,7 +50,8 @@ class ReactHarmonyEvents {
     const target = this.componentClass;
     const items = target.events || [];
     items.forEach((eventName) => {
-      target.event?.on(`${name}:${eventName}`, context[eventName].bind(context));
+      const method = context[eventName];
+      target.event?.on(`${name}:${eventName}`, method?.bind(context));
     });
   }
 
