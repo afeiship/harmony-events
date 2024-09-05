@@ -40,7 +40,8 @@ class HarmonyEvents {
   on() {
     const { items, context, name } = this.options;
     items.forEach((eventName) => {
-      this.eventBus?.on(`${name}:${eventName}`, context[eventName].bind(context));
+      const method = context[eventName];
+      if (method) this.eventBus?.on(`${name}:${eventName}`, method.bind(context));
     });
   }
 
