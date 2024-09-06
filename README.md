@@ -66,6 +66,13 @@ nx.$rc.event.emit('t2:clear');
 import { ReactHarmonyEvents } from '@jswork/harmony-events';
 import type { EventMittNamespace } from '@jswork/event-mitt';
 
+interface MyComponentProps {
+  /**
+   * The identity name.
+   */
+  name?: string;
+}
+
 class MyComponent extends React.Component {
   // 1. public events
   static events = ['add', 'remove', 'clear'];
@@ -76,9 +83,16 @@ class MyComponent extends React.Component {
   
   constructor(props) {
     super(props);
-    // 2. init harmonyEvents
+    // 3.1. init harmonyEvents
     this.harmonyEvents = ReactHarmonyEvents.create(this);
   }
+
+  // OR use componentDidMount
+  componentDidMount(): void {
+    // 3.2. init harmonyEvents
+    this.harmonyEvents = ReactHarmonyEvents.create(this);
+  }
+
 
   componentWillUnmount() {
     // 3. destroy harmonyEvents
@@ -104,6 +118,27 @@ MyComponent.event.emit('t2:remove', 1);
 
 MyComponent.event.emit('t1:clear');
 MyComponent.event.emit('t2:clear');
+
+// 5. useCommand
+import RcComponent from '.';
+
+const useCommand = (inName?: string) => {
+  const name = inName || '@';
+  const execute = (command: string, ...args: any[]) =>
+    RcComponent.event?.emit(`${name}:${command}`, ...args);
+
+  const listen = (cmd: string, callback: any) => RcComponent.event?.on(`${name}:${cmd}`, callback);
+
+  // the command repository:
+  const bottom = (index: number) => execute('bottom', index);
+
+  return {
+    listen,
+    bottom,
+  };
+};
+
+export default useCommand;
 ```
 
 ## license
