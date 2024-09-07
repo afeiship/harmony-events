@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "@jswork/next": "^1.2.2",
+    "@jswork/next": "^1.2.6",
     "@jswork/rollup-banner": "^1.0.8",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
@@ -33,7 +33,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "dependencies": {
-    "@jswork/event-mitt": "^1.0.14"
+    "@jswork/event-mitt": "^2.0.6"
   },
   "keywords": [
     "event",
