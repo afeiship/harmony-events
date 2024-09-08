@@ -11,6 +11,14 @@
 npm install @jswork/harmony-events
 ```
 
+## implements
+- [react-interactive-list](https://github.com/afeiship/react-interactive-list)
+- [react-toast](https://github.com/afeiship/react-toast)
+- [react-scrollspy-nav](https://github.com/afeiship/react-scrollspy-nav)
+- [react-scroll-pin](https://github.com/afeiship/react-scroll-pin)
+- [react-echarts](https://github.com/afeiship/react-echarts)
+- [react-fly2cart](https://github.com/afeiship/react-fly2cart)
+
 ## usage
 ```js
 import HarmonyEvents from '@jswork/harmony-events';
