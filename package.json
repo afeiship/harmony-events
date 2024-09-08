@@ -1,6 +1,6 @@
 {
   "name": "@jswork/harmony-events",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "description": "Harmony events(nx).",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
@@ -18,7 +18,7 @@
   "devDependencies": {
     "@jswork/next": "^1.2.6",
     "@jswork/rollup-banner": "^1.0.8",
-    "@jswork/event-mitt": "^2.0.11",
+    "@jswork/event-mitt": "^2.0.13",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
     "@swc/core": "^1.3.101",
